@@ -1,0 +1,46 @@
+# Test Generated Files
+node_modules/
+dist/
+coverage/
+*.log
+*.tgz
+
+# Test Environment
+.env.test.local
+.env.local
+
+# Jest
+jest-results.xml
+test-report.html
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Mock data (if containing sensitive info)
+# mocks/sensitive/
+
+# Coverage reports
+coverage/
+*.coverage
+.nyc_output/
+
+# Test artifacts
+test-artifacts/
+screenshots/
+videos/ 
