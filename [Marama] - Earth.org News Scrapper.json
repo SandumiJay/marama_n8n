@@ -1,0 +1,114 @@
+{
+  "name": "[Marama] - Earth.org News Scrapper",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "feedUrl": "https://earth.org/feed/"
+      },
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        -13520,
+        3824
+      ],
+      "id": "9d0a7c4c-eb1f-4417-80b4-9d70f491e6d4",
+      "name": "RSS Feed Trigger"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iR3f2ACi161PfQjP",
+          "mode": "list",
+          "cachedResultName": "[Marama] News-feeder"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Content": "={{ $json[\"content:encodedSnippet\"] }}",
+            "ContentHTML": "={{ $json[\"content:encoded\"] }}",
+            "WebsiteName": "Earth",
+            "json": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ContentHTML",
+              "displayName": "ContentHTML",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "WebsiteName",
+              "displayName": "WebsiteName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "json",
+              "displayName": "json",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -13296,
+        3824
+      ],
+      "id": "7cbbf93b-14c2-469c-8581-911a3c4a9f96",
+      "name": "Execute Workflow"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "037a36e2-50de-4e69-bc4d-6ba74e860b91",
+  "meta": {
+    "instanceId": "096854a656a56fe56c7ed8fc37db073b035d4d273d59324e67c7bb88e7c70748"
+  },
+  "id": "BbMRObF9ryHGICyV",
+  "tags": []
+}

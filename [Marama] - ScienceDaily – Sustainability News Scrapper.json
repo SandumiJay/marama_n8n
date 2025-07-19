@@ -1,0 +1,123 @@
+{
+  "name": "[Marama] - ScienceDaily – Sustainability News Scrapper",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "feedUrl": "https://sciencedaily.com/rss/"
+      },
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        -15088,
+        3424
+      ],
+      "id": "9d0a7c4c-eb1f-4417-80b4-9d70f491e6d4",
+      "name": "RSS Feed Trigger"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iR3f2ACi161PfQjP",
+          "mode": "list",
+          "cachedResultName": "[Marama] News-feeder"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Content": "={{ $json.content }}",
+            "ContentHTML": "={{ $json.contentSnippet }}",
+            "WebsiteName": "ScienceDaily – Sustainability",
+            "json": "={{ $json }}"
+          },
+          "matchingColumns": [
+            "content",
+            "contentSnippet",
+            ""
+          ],
+          "schema": [
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ContentHTML",
+              "displayName": "ContentHTML",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "WebsiteName",
+              "displayName": "WebsiteName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "json",
+              "displayName": "json",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -14816,
+        3424
+      ],
+      "name": "Call [Marama] News-feeder",
+      "id": "45d11647-a12d-4c87-ae47-889dbb43219c"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "Call [Marama] News-feeder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "253f60d3-cdc6-4ef3-ac7c-a321f50c39cd",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "096854a656a56fe56c7ed8fc37db073b035d4d273d59324e67c7bb88e7c70748"
+  },
+  "id": "irWpYkaJYuv2i3ag",
+  "tags": []
+}

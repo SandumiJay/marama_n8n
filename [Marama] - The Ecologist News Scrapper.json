@@ -1,0 +1,114 @@
+{
+  "name": "[Marama] - The Ecologist News Scrapper",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "feedUrl": "https://theecologist.org/news/feed"
+      },
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        -13520,
+        3856
+      ],
+      "id": "9d0a7c4c-eb1f-4417-80b4-9d70f491e6d4",
+      "name": "RSS Feed Trigger"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "iR3f2ACi161PfQjP",
+          "mode": "list",
+          "cachedResultName": "[Marama] News-feeder"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Content": "={{ $json.contentSnippet }}",
+            "ContentHTML": "={{ $json.content }}",
+            "WebsiteName": "My Plastic Free Life ",
+            "json": "={{ $json }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Content",
+              "displayName": "Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ContentHTML",
+              "displayName": "ContentHTML",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "WebsiteName",
+              "displayName": "WebsiteName",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "json",
+              "displayName": "json",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -13216,
+        3856
+      ],
+      "id": "077b679f-0c53-49a8-8137-9450f7b596cb",
+      "name": "Execute Workflow"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "RSS Feed Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a5815172-5c20-496e-9175-1274602e65db",
+  "meta": {
+    "instanceId": "096854a656a56fe56c7ed8fc37db073b035d4d273d59324e67c7bb88e7c70748"
+  },
+  "id": "Qrn27IKyB99vCV05",
+  "tags": []
+}
