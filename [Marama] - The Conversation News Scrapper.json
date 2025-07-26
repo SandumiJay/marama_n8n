@@ -10,7 +10,7 @@
             }
           ]
         },
-        "feedUrl": "https://theconversation.com/articles.atom"
+        "feedUrl": "https://theconversation.com/nz/environment/articles.atom"
       },
       "type": "n8n-nodes-base.rssFeedReadTrigger",
       "typeVersion": 1,
